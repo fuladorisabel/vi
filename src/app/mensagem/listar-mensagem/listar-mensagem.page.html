@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listar-mensagem</ion-title>
+    <ion-title>lista de autorização</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-searchbar [(ngModel)]="valor" (ionChange)="filtrar()"></ion-searchbar>
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let cidade of listaFiltro">
+      <ion-label>{{ mensagem.campo1 }}</ion-label>
+      <ion-label>{{ mensagem.campo2 }}</ion-label>
+      <ion-label>{{ mensagem.campo3 }}</ion-label>
+      <ion-label>{{ mensagem.camp4 }}</ion-label>
+      <ion-label>{{ mensagem.campo5 }}</ion-label>
+      <ion-label>{{ mensagem.parentesco }}</ion-label>
+      <ion-label>{{ mensagem.data }}</ion-label>
+      <ion-label>{{ mensagem.horario }}</ion-label>
+      <ion-button (click)="excluir(mensagem.key)">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

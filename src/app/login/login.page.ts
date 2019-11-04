@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Funcionario } from '../funcionario/entidade/funcionario';
 import { AngularFireAuth } from "angularfire2/auth";
@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
   constructor(private afAuth: AngularFireAuth, private router: Router) { }
   logar() {
     this.afAuth.auth.signInWithEmailAndPassword(this.funcionario.email, this.funcionario.senha).then(
-      () => { this.router.navigate(['lista-mensagem']); }
+      () => { this.router.navigate(['listar-mensagem']); }
     ).catch((erro) => console.log(erro));
   }
 
