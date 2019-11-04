@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import {  Mensagem } from 'src/app/mensagem';
 
 @Component({
@@ -11,7 +11,7 @@ import {  Mensagem } from 'src/app/mensagem';
   templateUrl: './listar-mensagem.page.html',
   styleUrls: ['./listar-mensagem.page.scss'],
 })
-export class ListarCidadePage implements OnInit {
+export class ListarMensagemPage implements OnInit {
   listaMensagem: Observable<Mensagem[]>;
   listaFiltro: Mensagem[];
   filtro = {};
