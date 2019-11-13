@@ -4,7 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
-import {  Mensagem } from 'src/app/mensagem';
+import { Mensagem } from 'src/app/mensagem';
 
 @Component({
   selector: 'app-listar-mensagem',
@@ -19,21 +19,21 @@ export class ListarMensagemPage implements OnInit {
   valor: string;
 
 
-    constructor(private fire: AngularFireDatabase, private rota: Router) {
-      this.listaMensagem = this.fire.list<Mensagem>('mensagem').snapshotChanges().pipe(
-        map( lista => lista.map(linha => ({ key: linha.payload.key, ... linha.payload.val() })))
-      );
-    }
+  constructor(private fire: AngularFireDatabase, private rota: Router) {
+    this.listaMensagem = this.fire.list<Mensagem>('mensagem').snapshotChanges().pipe(
+      map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+    );
+  }
   ngOnInit() {
     this.listaMensagem.subscribe(Mensagem => {
-       this.mensagens = Mensagem;
-       this.listaFiltro = _.filter(this.mensagens, _.conforms(this.filtro));
-   })
+      this.mensagens = Mensagem;
+      this.listaFiltro = _.filter(this.mensagens, _.conforms(this.filtro));
+    }) 
   }
-  filtrar(){
-   this.filtro['campo3'] = val => val.includes(this.valor);
-   this.listaFiltro = _.filter(this.mensagens, _.conforms(this.filtro));
- }
+  filtrar() {
+    this.filtro['campo3'] = val => val.includes(this.valor);
+    this.listaFiltro = _.filter(this.mensagens, _.conforms(this.filtro));
+  }
 
 
 }
