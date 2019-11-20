@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Turma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content>
+  <ion-item>
+    <ion-label position="floating">Turma:</ion-label>
+    <ion-input [(ngModel)]="turma.ano" placeholder="insira o ano e o curso"></ion-input>
+  </ion-item>
+</ion-card-content>
+  <ion-button color = "danger" shape = "round" expand = "full" (click)="salvar()">salvar</ion-button>
+
+  <ion-tabs color = "black">
+  <ion-tab-bar slot="bottom" color = "black">
+    <ion-button expand = "full" color = "blank" href = "home">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>inicio</ion-label>
+    </ion-button>
+
+    <ion-button expand = "full" color = "blank" tab="speakers" href = "listar-aluno">
+      <ion-icon name="contacts"></ion-icon>
+      <ion-label>Alunos</ion-label>
+    </ion-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content>

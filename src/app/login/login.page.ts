@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
   constructor(private afAuth: AngularFireAuth, private router: Router) { }
   logar() {
     this.afAuth.auth.signInWithEmailAndPassword(this.funcionario.email, this.funcionario.senha).then(
-      () => { this.router.navigate(['listar-mensagem']); }
+      () => { this.router.navigate(['inicio']); }
     ).catch((erro) => console.log(erro));
   }
 

@@ -7,13 +7,11 @@
   <ion-searchbar [(ngModel)]="valor" (ionChange)="filtrar()"></ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let mensagem of listaFiltro">
-      <ion-label><br><b>Responsável:</b><br>{{ mensagem.campo1 }}<br><br><b>Documento:</b> <br>{{mensagem.campo2}}<br><br>
-        <b>Aluno(a):</b> <br>{{ mensagem.campo3 }}<br><br> <b>Matriculado(a):</b> <br>{{ mensagem.campo4 }}<br><br>
-         <b>Motivo:</b> <br>{{ mensagem.campo5 }}<br><br> <b>Data:</b> <br>{{ mensagem.data }}<br><br>
-          <b>Parentesco:</b> <br>{{ mensagem.parentesco }}<br><br> <b>Horário:</b> <br>{{ mensagem.horario }}<br><br></ion-label>
-          <ion-button color="danger" (click)="excluir(mensagem.key)">
-            <ion-icon name="close-circle"></ion-icon>
-          </ion-button>
+      <ion-label><br><b>Aluno(a):</b> <br>{{ mensagem.campo3 }}<br><br></ion-label>
+      <ion-button (click) = "alterar(mensagem)" color = "secondary"><ion-icon name="eye"></ion-icon></ion-button><br><b></b><br>
+      <ion-button color="danger" (click)="excluir(mensagem.key)">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button><br><br>
     </ion-item>
   </ion-list>
 </ion-content>

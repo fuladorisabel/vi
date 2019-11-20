@@ -11,9 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
+import { ListaChaveComponent } from './lista-chave/lista-chave.component';
+import { SalvarMensagemComponent } from './mensagem/salvar-mensagem/salvar-mensagem.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ListaChaveComponent, SalvarMensagemComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
     AngularFireModule.initializeApp({
