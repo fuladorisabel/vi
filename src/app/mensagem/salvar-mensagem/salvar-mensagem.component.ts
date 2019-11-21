@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mensagem } from 'src/app/mensagem';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { PopoverController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-salvar-mensagem',
@@ -10,11 +11,17 @@ import { Router } from '@angular/router';
 })
 export class SalvarMensagemComponent implements OnInit {
   mensagem: Mensagem = new Mensagem();
-  constructor(private fire: AngularFireDatabase, private rota: Router) { }
+  constructor(private fire: AngularFireDatabase,private modal: ModalController,  private rota: Router) { }
   enviar() {
-    this.fire.list('mensagem').push(this.mensagem);
-    this.mensagem = new Mensagem();
-    this.rota.navigate(['/']);
+    if (this.mensagem.key == null) {
+      this.fire.list('mensagem').push(this.mensagem);
+      this.mensagem = new Mensagem();
+      this.rota.navigate(['listar-mensagem']);
+    }
+    else {
+      this.fire.object('mensagem/' + this.mensagem.key).update(this.mensagem);
+      this.modal.dismiss();
+    }
   }
 
   ngOnInit() { }

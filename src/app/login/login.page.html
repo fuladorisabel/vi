@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color = "success">
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,6 +7,10 @@
 
   <ion-card-content>
     <form #meuSonho='ngForm'>
+      <ion-item>
+      <ion-label position="floating">Nome de usuário*:</ion-label>
+        <ion-input #nome = "ngModel" [(ngModel)]="funcionario.nome" type="text" name = "nome" requiered></ion-input>
+      </ion-item>
       <ion-item>
         <ion-label position="floating">Email *:</ion-label>
         <ion-input #email='ngModel' type="text" placeholder="insira o seu email" name="email" [(ngModel)]="funcionario.email" required></ion-input>
@@ -16,6 +20,9 @@
         <ion-input #senha='ngModel' type="password" placeholder="insira a sua senha" name="senha" [(ngModel)]="funcionario.senha" minlength="8" required></ion-input>
       </ion-item>
     </form>
+    <span style='color:blue' *ngIf="nome.errors && nome.touched">
+      <ion-label>O nome é obrigatório! </ion-label>
+    </span>
     <span style='color:red' *ngIf="email.errors && email.touched">
       <ion-label>O email é obrigatório! </ion-label>
     </span>
