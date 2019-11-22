@@ -13,9 +13,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
 import { ListaChaveComponent } from './lista-chave/lista-chave.component';
 import { SalvarMensagemComponent } from './mensagem/salvar-mensagem/salvar-mensagem.component';
+import { OpcoesComponent } from './opcoes/opcoes.component';
 
 @NgModule({
-  declarations: [AppComponent, ListaChaveComponent, SalvarMensagemComponent],
+  declarations: [AppComponent, ListaChaveComponent, SalvarMensagemComponent, OpcoesComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
     AngularFireModule.initializeApp({

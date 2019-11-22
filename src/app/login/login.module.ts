@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireAuth } from "angularfire2/auth";
 import { IonicModule } from '@ionic/angular';
-
+import { AngularFirestore } from '@angular/fire/firestore';
 import { LoginPage } from './login.page';
 
 const routes: Routes = [
@@ -22,6 +22,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [LoginPage],
-providers: [AngularFireAuth]
+providers: [AngularFireAuth, AngularFirestore ]
 })
 export class LoginPageModule {}

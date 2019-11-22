@@ -36,9 +36,9 @@ send(){
 
   ngOnInit() {
   }
-  async tela(ev: any) {
+  /*async tela(ev: any) {
       const popover = await this.popoverController.create({
-        component: SalvarFuncionarioPage,
+        component: OpcoesComponent,
         event: ev,
         translucent: true
       });
@@ -56,5 +56,5 @@ send(){
         this.afAuth.auth.signOut();
         this.router.navigate(['home']);
       }
-
+*/
 }

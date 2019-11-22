@@ -11,15 +11,16 @@ import { PopoverController, ModalController } from '@ionic/angular';
 })
 export class SalvarMensagemComponent implements OnInit {
   mensagem: Mensagem = new Mensagem();
+  key;
   constructor(private fire: AngularFireDatabase,private modal: ModalController,  private rota: Router) { }
   enviar() {
-    if (this.mensagem.key == null) {
+    if (this.key == null) {
       this.fire.list('mensagem').push(this.mensagem);
       this.mensagem = new Mensagem();
       this.rota.navigate(['listar-mensagem']);
     }
     else {
-      this.fire.object('mensagem/' + this.mensagem.key).update(this.mensagem);
+      this.fire.object('mensagem/' + this.key).update(this.mensagem);
       this.modal.dismiss();
     }
   }
